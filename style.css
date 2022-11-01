@@ -1,0 +1,373 @@
+/* Basic Styles */
+
+html{
+    scroll-behavior: smooth; /*smooth scrolling for the page*/
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0 0;
+    font-family: "Delius","Poppins","Lato", Arial, Helvetica,sans-serif /*fonts used*/
+}
+
+/*start of creating a row and column based layout similar to bootstrap*/
+.row{display: flex;}
+
+/*number after the word 'column' indicates the ratio of the full page width to the column's width*/
+.column1{
+    width: 100%;
+}
+.column2{
+    width: 50%;
+}
+.column3{
+    width: 33.3333%;
+}
+.column4{
+    width: 25%;
+}
+.column5{
+    width: 20%;
+}
+.column6{
+    width: 16.6667%;
+}
+.column8{
+    width: 12.5%;
+}
+.column10{
+    width: 10%;
+}
+.column12{
+    width: 8.3333%;
+}
+/*end of creating a row and column based layout similar to bootstrap*/
+
+/*class to clear after floats*/
+.clear{
+    content: "";
+    display: table;
+    clear: both;
+}
+/*class to add left margin of 40px to an element*/
+.margin-lt-40{
+    margin-left: 40px;
+}
+
+/*background colors*/
+.richBlack-bg{background-color: #080F0F;}
+
+.center{
+    justify-content: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+
+/* Index Styles */
+
+/*set styles for landing secion*/
+#landingSection{
+    background-image: url('images/landing-bg.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    transition: opacity 1.5s linear;
+}
+/*position landing title*/
+#titleWrapper{
+    justify-content: center;
+    vertical-align: center;
+    text-align: center;
+}
+/*position site title in landing section*/
+#siteTitle{
+    margin: 0 auto;
+    color: #509954;
+    font-size: 6em;
+    letter-spacing: 30px;
+    position: relative;
+    cursor: default;
+    user-select: none;
+    margin-top: 200px;
+    text-shadow: 2px 2px 1px black;
+}
+/*make site title responsive*/
+@media (max-width: 768px) {
+#siteTitle{
+    font-size: 2em;
+    letter-spacing: 20px;
+}
+}
+/*classes for site title's animations from https://tobiasahlin.com/moving-letters/*/
+.ml9 {
+    position: relative;
+}
+.ml9 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+}
+.ml9 .letter {
+    transform-origin: 50% 100%;
+    display: inline-block;
+    line-height: 1em;
+}
+
+/*styling the play button*/
+.circleButton{
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+.circleButton i{
+    opacity: 0.8;
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    background-color: #6efbef;
+    color: #509954;
+    box-shadow: 2px 2px 1px black;
+    cursor: pointer;
+}
+.circleButton i:hover{
+    transform: scale(1.15);
+    opacity: 0.9;
+}
+/*styling and hiding the characters in the first scene*/
+#characters,#toPak{
+    display: none;
+}
+#char1 img, #char2 img, #char1LScene img, #char2LScene img{
+    width: 40%;
+    margin: 0 auto;
+    border: #fff;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+#char1,#char1LScene{position: relative;opacity: 0;transition: opacity 2s linear;}
+#char2,#char2LScene{position: relative;opacity: 0;transition: opacity 2s linear;}
+/*making the first section characters responsive*/
+@media (max-width: 992px) {
+#char1 img, #char2 img, #char1LScene img, #char2LScene img{
+    width: 60%;
+    transform: translate(-50%);
+}
+}
+@media (max-width: 768px) {
+#char1 img, #char2 img, #char1LScene img, #char2LScene img{
+    width: 80%;
+    transform: translate(-50%);
+}
+}
+
+/*styling the map for pakistan*/
+.pak_map_wrapper{
+    width: 48%;
+    margin: 0 auto;
+  }
+  /*make maps responsive*/
+  @media (max-width: 992px) {
+    .pak_map_wrapper svg{
+      position: relative;
+      top: 50% !important;
+      transform: translateY(-50%);
+    }
+    .pak_map_wrapper{
+      width: 70%;
+      height: inherit;
+    }
+  }
+  @media (max-width: 768px) {
+    .pak_map_wrapper svg{
+      position: relative;
+      top: 50% !important;
+      transform: translateY(-50%);
+    }
+    .pak_map_wrapper{
+      width: 90%;
+      height: inherit;
+    }
+  }
+  /*style sections for all scenes*/
+  #pakistan,#lastScene{
+    background: #7CB9E8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: none;
+    overflow: clip;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 1.5s linear;
+  }
+  /*position the instructions for proceeding with a story*/
+  .instructions{
+    position: fixed;
+    top: 0;
+    left: 10%;
+    margin: 0;
+  }
+  /*style regions*/
+  #balochistan,
+  #kashmir,
+  #north,
+  #punjab,
+  #sindh,
+  #kpk{cursor: pointer;}
+  
+  #balochistan:hover,
+  #kashmir:hover,
+  #north:hover,
+  #punjab:hover,
+  #sindh:hover,
+  #kpk:hover{fill: #fff; fill-opacity:0.9;}
+  
+  /*style button for moving forward to different sections*/
+  .myBtn{
+      padding: 20px 10px;
+      position: absolute;
+      bottom: 20px;
+      transform: translateX(-100%);
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #4e4675;
+      background-color: #37cb4e;
+      width: 100px;
+      left: 95%;
+      margin: 0;
+    cursor: pointer;
+  }
+  .myBtn:hover{
+      color: #37cb4e;
+      background-color: #4e4675;
+  }
+  .btnText {
+      font-size: 1.2em;
+      color: white;
+      margin: 0;
+  }
+  /*style text in the last scene*/
+  #lastSceneTxt{
+    display: none;
+    font-size: 2em;
+    text-align: center;
+    position: relative;
+    top: 40%;
+    transform: translate(-50%,-40%);
+    left: 50%;
+    color: white;
+    text-shadow: 3px 3px 2px black;
+    user-select: none;
+    margin-bottom: 0;
+  }
+  /*style the form for the last scene*/
+  #locationForm{
+    display: none;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%,-50%);
+  }
+  input[type="text"] {
+      width: 75%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #555;
+      outline: none;
+      left: 50%;
+      position: relative;
+      transform: translateX(-50%);
+  }
+  
+  input[type=text]:focus {
+    background-color: lightblue;
+  }
+
+
+  /* Modal Styles */
+
+  /*style modals for different regions of countries*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    width: 80vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 1000;
+    position: relative;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-content{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+  }
+  
+  /*set background images for modals of different regions*/
+  #balochistanModal .modal-content{
+    background-image: url('images/balochistan.jpeg');
+  }
+  #sindhModal .modal-content{
+    background-image: url('images/sindh.jpeg');
+  }
+  #kashmirModal .modal-content{
+    background-image: url('images/kashmir.jpeg');
+  }
+  #northModal .modal-content{
+    background-image: url('images/north.jpeg');
+  }
+  #punjabModal .modal-content{
+    background-image: url('images/punjab.jpeg');
+  }
+  #kpkModal .modal-content{
+    background-image: url('images/kpk.jpeg');
+  }
